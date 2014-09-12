@@ -11,6 +11,7 @@ module.exports = (grunt) ->
     next = @async()
     remote = @data.remote or 'heroku'
     branch = @data.branch or 'master'
+    grunt.log.writeln("Pushing branch '#{branch}' to '#{remote}'...")
     grunt.util.spawn
       cmd: 'git'
       grunt: false
