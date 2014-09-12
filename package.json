@@ -1,39 +1,41 @@
 {
-    "name": "grunt-heroku",
-    "version": "0.1.7",
-    "description": "Heroku commands for Grunt",
-    "author": {
-        "name": "Tyler G. Hicks-Wright",
-        "email": "ty@tghw.com",
-        "url": "http://tghw.com"
-    },
-    "homepage": "https://github.com/tghw/grunt-heroku",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/tghw/grunt-heroku.git"
-    },
-    "bugs": {
-        "url": "https://github.com/tghw/grunt-heroku/issues"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/tghw/grunt-heroku/blob/master/LICENSE-MIT"
-        }
-    ],
-    "engines": {
-        "node": "*"
-    },
-    "keywords": [
-        "gruntplugin",
-        "heroku"
-    ],
-    "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-contrib-coffee": "~0.9.0",
-        "grunt-contrib-watch": "~0.5.3"
-    },
-    "dependencies": {
-        "grunt": "~0.4.2"
+  "name": "grunt-heroku",
+  "version": "0.1.7",
+  "description": "Heroku commands for Grunt",
+  "author": {
+    "name": "Tyler G. Hicks-Wright",
+    "email": "ty@tghw.com",
+    "url": "http://tghw.com"
+  },
+  "homepage": "https://github.com/tghw/grunt-heroku",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tghw/grunt-heroku.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tghw/grunt-heroku/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tghw/grunt-heroku/blob/master/LICENSE-MIT"
     }
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "keywords": [
+    "gruntplugin",
+    "heroku"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.9.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-git": "~0.2.14",
+    "grunt-bump": "~0.0.15"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2"
+  }
 }
