@@ -18,7 +18,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-heroku');
 ```
 
-## The `herokurun` Task
+## The `hrun` Task
 
 Run a command on Heroku.
 
@@ -29,7 +29,7 @@ Run a command on Heroku.
 
 ```js
 grunt.initConfig({
-  herokurun: {
+  hrun: {
     your_target: {
       cmd: 'command',
       args: ['arg1', 'arg2']
@@ -38,7 +38,7 @@ grunt.initConfig({
 });
 ```
 
-## The `herokudeploy` Task
+## The `hdeploy` Task
 
 Use `git` to deploy your app to Heroku.
 
@@ -49,7 +49,7 @@ Use `git` to deploy your app to Heroku.
 
 ```js
 grunt.initConfig({
-  herokurun: {
+  hdeploy: {
     staging: {
       remote: 'staging',
       branch: 'master
