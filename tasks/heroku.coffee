@@ -28,7 +28,10 @@ module.exports = (grunt) ->
 
   grunt.registerMultiTask 'herokurun', 'Run a command on Heroku.', () ->
     next = @async()
-    args = ['run'].concat(@data.args)
+    if not @data.cmd?
+      grunt.log.error('cmd is required')
+      return next()
+    args = ['run', @data.cmd].concat(@data.args or [])
     grunt.util.spawn
       cmd: 'heroku'
       grunt: false

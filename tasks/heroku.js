@@ -33,7 +33,11 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('herokurun', 'Run a command on Heroku.', function() {
     var args, next;
     next = this.async();
-    args = ['run'].concat(this.data.args);
+    if (this.data.cmd == null) {
+      grunt.log.error('cmd is required');
+      return next();
+    }
+    args = ['run', this.data.cmd].concat(this.data.args || []);
     return grunt.util.spawn({
       cmd: 'heroku',
       grunt: false,
