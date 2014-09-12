@@ -10,13 +10,25 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('herokudeploy', 'Deploy the specified branch to the specified environment of Heroku.', function() {
     var branch, next, remote;
     next = this.async();
-    remote = this.options.remote || 'heroku';
-    branch = this.options.branch || 'master';
+    remote = this.data.remote || 'heroku';
+    branch = this.data.branch || 'master';
+    grunt.log.writeln("Pushing branch '" + branch + "' to '" + remote + "'...");
     return grunt.util.spawn({
       cmd: 'git',
       grunt: false,
-      args: ['push', remote, branch]
-    }, next);
+      args: ['push', remote, branch],
+      opts: {
+        stdio: 'inherit'
+      }
+    }, function(error, result, code) {
+      if (code === 0) {
+        grunt.log.writeln(result.stdout);
+      } else {
+        grunt.log.errorlns(error);
+        grunt.log.errorlns(result.stderr);
+      }
+      return next();
+    });
   });
   grunt.registerMultiTask('herokurun', 'Run a command on Heroku.', function() {
     var args, next;
@@ -31,11 +43,12 @@ module.exports = function(grunt) {
       }
     }, function(error, result, code) {
       if (code === 0) {
-        return grunt.log.writeln(result.stdout);
+        grunt.log.writeln(result.stdout);
       } else {
         grunt.log.errorlns(error);
-        return grunt.log.errorlns(result.stderr);
+        grunt.log.errorlns(result.stderr);
       }
+      return next();
     });
   });
 };
