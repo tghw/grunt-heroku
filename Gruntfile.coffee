@@ -18,7 +18,10 @@ module.exports = (grunt) ->
         tasks: ['coffee']
     gitcommit:
       compiled:
-        files: ['tasks/heroku.js']
+        options:
+          ignoreEmpty: true
+        files:
+          src: ['tasks/heroku.js']
     bump:
       options:
         files: ['package.json']
