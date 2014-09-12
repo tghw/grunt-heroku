@@ -9,8 +9,8 @@ Licensed under MIT license.
 module.exports = (grunt) ->
   grunt.registerMultiTask 'herokudeploy', 'Deploy the specified branch to the specified environment of Heroku.', () ->
     next = @async()
-    remote = @options.remote or 'heroku'
-    branch = @options.branch or 'master'
+    remote = @data.remote or 'heroku'
+    branch = @data.branch or 'master'
     grunt.util.spawn
       cmd: 'git'
       grunt: false
