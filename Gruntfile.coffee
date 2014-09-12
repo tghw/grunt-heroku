@@ -16,6 +16,9 @@ module.exports = (grunt) ->
       coffee:
         files: ['tasks/*.coffee']
         tasks: ['coffee']
+    gitcommit:
+      compiled:
+        files: ['tasks/heroku.js']
     bump:
       options:
         files: ['package.json']
@@ -30,4 +33,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-bump')
+  grunt.loadNpmTasks('grunt-git')
+  grunt.registerTask('deploy', ['coffee:dev', 'gitcommit:compiled', 'bump'])
   grunt.registerTask('default', ['coffee:dev', 'watch'])
+
