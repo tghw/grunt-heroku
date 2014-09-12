@@ -7,7 +7,7 @@ Copyriught (c) 2014 Tyler G. Hicks-Wright
 Licensed under MIT license.
  */
 module.exports = function(grunt) {
-  grunt.registerMultiTask('herokudeploy', 'Deploy the specified branch to the specified environment of Heroku.', function() {
+  grunt.registerMultiTask('hdeploy', 'Deploy the specified branch to the specified environment of Heroku.', function() {
     var branch, next, remote;
     next = this.async();
     remote = this.data.remote || 'heroku';
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       return next();
     });
   });
-  grunt.registerMultiTask('herokurun', 'Run a command on Heroku.', function() {
+  grunt.registerMultiTask('hrun', 'Run a command on Heroku.', function() {
     var args, next;
     next = this.async();
     if (this.data.cmd == null) {

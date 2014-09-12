@@ -7,7 +7,7 @@ Licensed under MIT license.
 ###
 
 module.exports = (grunt) ->
-  grunt.registerMultiTask 'herokudeploy', 'Deploy the specified branch to the specified environment of Heroku.', () ->
+  grunt.registerMultiTask 'hdeploy', 'Deploy the specified branch to the specified environment of Heroku.', () ->
     next = @async()
     remote = @data.remote or 'heroku'
     branch = @data.branch or 'master'
@@ -26,7 +26,7 @@ module.exports = (grunt) ->
         grunt.log.errorlns(result.stderr)
       next()
 
-  grunt.registerMultiTask 'herokurun', 'Run a command on Heroku.', () ->
+  grunt.registerMultiTask 'hrun', 'Run a command on Heroku.', () ->
     next = @async()
     if not @data.cmd?
       grunt.log.error('cmd is required')
