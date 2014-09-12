@@ -1,6 +1,6 @@
 {
     "name": "grunt-heroku",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Heroku commands for Grunt",
     "author": {
         "name": "Tyler G. Hicks-Wright",
