@@ -15,7 +15,15 @@ module.exports = (grunt) ->
       cmd: 'git'
       grunt: false
       args: ['push', remote, branch]
-    , next
+      opts:
+        stdio: 'inherit'
+    , (error, result, code) ->
+      if code == 0
+        grunt.log.writeln(result.stdout)
+      else
+        grunt.log.errorlns(error)
+        grunt.log.errorlns(result.stderr)
+      next()
 
   grunt.registerMultiTask 'herokurun', 'Run a command on Heroku.', () ->
     next = @async()
@@ -32,4 +40,6 @@ module.exports = (grunt) ->
       else
         grunt.log.errorlns(error)
         grunt.log.errorlns(result.stderr)
+      next()
+
   return
