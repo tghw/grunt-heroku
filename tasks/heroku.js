@@ -8,15 +8,22 @@ Licensed under MIT license.
  */
 module.exports = function(grunt) {
   grunt.registerMultiTask('hdeploy', 'Deploy the specified branch to the specified environment of Heroku.', function() {
-    var branch, next, remote;
+    var args, branch, force, next, remote, tobranch;
     next = this.async();
     remote = this.data.remote || 'heroku';
     branch = this.data.branch || 'master';
+    force = this.data.force || false;
+    tobranch = this.data.tobranch || 'master';
     grunt.log.writeln("Pushing branch '" + branch + "' to '" + remote + "'...");
+    args = ['push'];
+    if (force) {
+      args.push('-f');
+    }
+    args = args.concat([remote, branch + ':' + tobranch]);
     return grunt.util.spawn({
       cmd: 'git',
       grunt: false,
-      args: ['push', remote, branch],
+      args: args,
       opts: {
         stdio: 'inherit'
       }

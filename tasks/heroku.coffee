@@ -11,11 +11,17 @@ module.exports = (grunt) ->
     next = @async()
     remote = @data.remote or 'heroku'
     branch = @data.branch or 'master'
+    force = @data.force or false
+    tobranch = @data.tobranch or 'master'
     grunt.log.writeln("Pushing branch '#{branch}' to '#{remote}'...")
+    args = ['push']
+    if force
+      args.push '-f'
+    args = args.concat [remote, branch + ':' + tobranch]
     grunt.util.spawn
       cmd: 'git'
       grunt: false
-      args: ['push', remote, branch]
+      args: args,
       opts:
         stdio: 'inherit'
     , (error, result, code) ->
