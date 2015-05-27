@@ -23,11 +23,12 @@ module.exports = function(grunt) {
     }, function(error, result, code) {
       if (code === 0) {
         grunt.log.writeln(result.stdout);
+        return next();
       } else {
         grunt.log.errorlns(error);
         grunt.log.errorlns(result.stderr);
+        return next(false);
       }
-      return next();
     });
   });
   grunt.registerMultiTask('hrun', 'Run a command on Heroku.', function() {

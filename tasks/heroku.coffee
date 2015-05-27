@@ -21,10 +21,11 @@ module.exports = (grunt) ->
     , (error, result, code) ->
       if code == 0
         grunt.log.writeln(result.stdout)
+        next()
       else
         grunt.log.errorlns(error)
         grunt.log.errorlns(result.stderr)
-      next()
+        next(false)
 
   grunt.registerMultiTask 'hrun', 'Run a command on Heroku.', () ->
     next = @async()
