@@ -52,7 +52,7 @@ grunt.initConfig({
   hdeploy: {
     staging: {
       remote: 'staging',
-      branch: 'master
+      branch: 'master'
     },
     production: {}
   }
